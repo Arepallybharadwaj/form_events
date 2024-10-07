@@ -1,50 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>forms practice</title>
-  </head>
-  <style>
-    form{
-        background-color: aquamarine;
-        height: 350px;
-        padding: 20PX;
-        width: 300px;
-        border-radius: 10px;
-        box-shadow: 1px 5px 5px;
-        margin-top: 100px;
-    }
-    body{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        align-content: center;
-        flex-wrap: wrap;
-    }
-  </style>
-  <body>
-    <form>
-      <label for="fname">first Name</label>
-      <input id="fname" type="text" placeholder="Enter first name here" /><br />
-      <br />
-      <label for="lname">Last Name</label>
-      <input type="text" id="lname" placeholder="Enter Last Name here" />
-      <br />
-      <br />
-      <label for="p no">Mobile No</label>
-      <input type="text" id="p no" placeholder="enter mobile no here" />
-      <br /><br />
-      <label for="mail">Email</label>
-      <input type="text" name="nail" id="mail" placeholder="email" /> <br />
-      <br />
-      <label for="dt">Date And Time</label>
-      <input type="date" name="date" id="" /><br>
-     <br> <label for="dt">File</label>
-      <input type="file" name="date" id="" /><br>
-      <br><label for="dt">range</label><br>
-      <input type="range" ><br>
-      <br><input type="submit" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<<device-width>>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+      
+    </style>
+</head>
+<body>
+   <h2 id="h2"></h2>
+    <form id="form1" onsubmit="demo(event)">
+        <input type="text" placeholder="name" id="ip1" required><br><br>
+        <input type="text" placeholder="second name" id="ip2" required><br><br>
+        <input type="tel" pattern="[0-9]{2}" placeholder="Age" id="age" required><br><br>
+        <input type="text" placeholder="blood group" id="ip4"required><br><br>
+        <input type="submit">
     </form>
-  </body>
+    <div id="bb"></div>
+    <script>
+        document.body.style.display="flex";
+        document.body.style.justifyContent="center";
+        document.body.style.alignItems="center";
+        document.body.style.height="100vh";
+        document.body.style.flexDirection="column";
+
+
+        let h2=document.getElementById("h2");
+        h2.innerHTML="<marquee> Fill these form to get yours<span> id card </span><marquee>"
+
+
+
+        let inp=document.getElementsByTagName("input");
+            inp[0].style.height="25px";
+            inp[0].style.textAlign="center";
+
+            inp[1].style.height="25px";
+            inp[1].style.textAlign="center";
+
+            inp[2].style.height="25px";
+            inp[2].style.textAlign="center";
+
+            inp[3].style.height="25px";
+            inp[3].style.textAlign="center";
+
+            inp[4].style.height="25px";
+            inp[4].style.width="70px";
+
+        let fo=document.getElementsByTagName("form");
+        fo[0].style.width="220px";
+        fo[0].style.padding="50px 20px";
+        // fo[0].style.border="2px solid black";
+        fo[0].style.borderRadius="20px";
+        fo[0].style.boxShadow="2px 2px 20px"
+
+
+        fo[0].addEventListener("submit",(event)=>{
+            event.preventDefault();
+            let nn=document.createElement("h3");
+            document.body.appendChild(nn);
+            nn.innerHTML="Please Wait..Your I'd Card is being ready!!!"
+
+            setTimeout(()=>{
+                nn.innerHTML="";
+                h2.innerHTML="";
+
+            fo[0].style.display="none";
+
+            let hh=document.createElement("h3")
+            document.body.appendChild(hh);
+            hh.innerHTML="Here is your I'd";
+            hh.style.color="#ffff";
+            hh.style.backgroundColor="chartreuse";
+            hh.style.padding="5px 10px";
+            hh.style.borderRadius="20px";
+
+            let div=document.getElementById("bb");
+            div.style.height="280px";
+            div.style.width="250px";
+            div.style.borderRadius="30px"
+            div.style.boxShadow="2px 2px 10px red";
+            div.style.border="2px solid red";
+            div.style.display="flex";
+            div.style.flexDirection="column";
+            div.style.alignItems="center";
+            div.style.padding="10px";
+            div.style.boxShadow="2px 2px 10px orange";
+
+            let h1=document.createElement("h2");
+            div.appendChild(h1);
+            h1.innerHTML="hardik <span>group</span><hr>";
+
+
+            let div1=document.createElement("div");
+            div.appendChild(div1);
+            div1.style.fontSize="19px";
+
+            let ip1=document.getElementById("ip1");
+            let ip2=document.getElementById("ip2");
+            let p=document.createElement("p");
+            div1.appendChild(p);
+            p.innerHTML=` <b>Name :-</b> ${ip1.value} ${ip2.value}`
+
+            let ip3=document.getElementById("age");
+            let pp=document.createElement("p");
+            div1.appendChild(pp);
+            pp.innerHTML=`<b>age:-</b> ${ip3.value}`
+
+            let ip4=document.getElementById("ip4");
+            let ppp=document.createElement("p");
+            div1.appendChild(ppp);
+            ppp.innerHTML=`<b>blood group : -</b>${ip4.value}`;
+
+
+
+
+
+           
+
+
+           
+            
+
+
+        },3000)
+    })
+
+
+
+
+
+
+        
+      
+    </script>
+  
+</body>
 </html>
